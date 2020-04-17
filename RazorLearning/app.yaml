@@ -15,4 +15,4 @@ resources:
 env_variables:
   # The __ in My__Greeting will be translated to a : by ASP.NET.
   My__Greeting: Hello AppEngine!
-  ASPNETCORE_URLS="http://*:8080"
+  ASPNETCORE_URLS : http://*:8080
