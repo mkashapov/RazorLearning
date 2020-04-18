@@ -16,6 +16,6 @@ namespace RazorWebModel
 
         public Dept Dept { get; set; }
 
-        public string Image { get; set; }
+        public string PhotoPath { get; set; }
     }
 }
