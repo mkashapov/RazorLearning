@@ -10,5 +10,7 @@ namespace RazorWebService
         IEnumerable<Employee> GetAllEmployees();
 
         Employee GetEmployeeById(int id);
+
+        Employee Update(Employee employee);
     }
 }

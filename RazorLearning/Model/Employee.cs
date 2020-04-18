@@ -10,6 +10,8 @@ namespace RazorWebModel
 
         public string Name { get; set; }
 
+        public string Email { get; set; }
+
         public DateTime BirthDate { get; set; }
 
         public Dept Dept { get; set; }

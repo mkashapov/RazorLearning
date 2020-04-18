@@ -9,19 +9,16 @@ using RazorWebService;
 
 namespace RazorLearning.Pages.Employees
 {
-    public class DetailsModel : PageModel
+    public class EditModel : PageModel
     {
         private IEmpoyeeRepository _repository;
 
         public Employee Employee { get; set; }
 
-        public DetailsModel(IEmpoyeeRepository repository)
+        public EditModel(IEmpoyeeRepository repository)
         {
             _repository = repository;
         }
-
-        //[BindProperty(SupportsGet = true)]
-        //public int Id { get; set; }
 
         public IActionResult OnGet(int id)
         {
@@ -33,6 +30,13 @@ namespace RazorLearning.Pages.Employees
             }
 
             return this.Page();
+        }
+
+        public IActionResult OnPost(Employee employee)
+        {
+            Employee = _repository.Update(employee);
+
+            return RedirectToPage("/Employees/Index");
         }
     }
 }

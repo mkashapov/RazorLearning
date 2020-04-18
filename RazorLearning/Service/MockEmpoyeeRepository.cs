@@ -12,7 +12,7 @@ namespace RazorWebService
         public MockEmpoyeeRepository()
         {
             _allEmployees = new List<Employee>();
-            _allEmployees.Add(new Employee() { Id = 1212, Name = "Ann", BirthDate = DateTime.Now.AddYears(-24), Dept = Dept.Manager, Image="1.jpg" });
+            _allEmployees.Add(new Employee() { Id = 1212, Name = "Ann", BirthDate = DateTime.Now.AddYears(-24), Dept = Dept.Manager, Image = "1.jpg" });
             _allEmployees.Add(new Employee() { Id = 2322, Name = "Vika", BirthDate = DateTime.Now.AddYears(-22), Dept = Dept.HR, Image = "2.jpg" });
             _allEmployees.Add(new Employee() { Id = 3435, Name = "Marina", BirthDate = DateTime.Now.AddYears(-34), Dept = Dept.IT, Image = "3.jpg" });
             _allEmployees.Add(new Employee() { Id = 5674, Name = "Sasha", BirthDate = DateTime.Now.AddYears(-24), Dept = Dept.Manager, Image = "4.jpg" });
@@ -22,6 +22,11 @@ namespace RazorWebService
             _allEmployees.Add(new Employee() { Id = 8876, Name = "Nina", BirthDate = DateTime.Now.AddYears(-20), Dept = Dept.IT, Image = "8.jpg" });
             _allEmployees.Add(new Employee() { Id = 9434, Name = "Vita", BirthDate = DateTime.Now.AddYears(-14), Dept = Dept.HR, Image = "9.jpg" });
             _allEmployees.Add(new Employee() { Id = 9656, Name = "Peter", BirthDate = DateTime.Now.AddYears(-24), Dept = Dept.IT, Image = "10.jpg" });
+
+            foreach (var employee in _allEmployees)
+            {
+                employee.Email = $"{employee.Name}@gmail.com";
+            }
         }
 
         public IEnumerable<Employee> GetAllEmployees()
@@ -33,5 +38,19 @@ namespace RazorWebService
         {
             return _allEmployees.Where(e => e.Id == id).SingleOrDefault();
         }
+
+        public Employee Update(Employee employee)
+        {
+            Employee current = this.GetEmployeeById(employee.Id);
+
+            if (current != null)
+            {
+                current.Name = employee.Name;
+                current.Email = employee.Email;
+                current.Dept = employee.Dept;
+            }
+
+            return current; 
+        }   
     }
 }
