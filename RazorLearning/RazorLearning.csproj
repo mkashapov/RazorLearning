@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RazorWebModel\RazorWebModel.csproj" />
-    <ProjectReference Include="..\RazorWebService\RazorWebService.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="app.yaml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
