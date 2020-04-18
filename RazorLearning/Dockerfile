@@ -9,9 +9,9 @@ WORKDIR /src
 #COPY ["./RazorLearning/RazorLearning.csproj", ""]
 #COPY ["./RazorWebService/RazorWebService.csproj", ""]
 #COPY ["./RazorWebModel/RazorWebModel.csproj", ""]
-RUN dotnet restore "./RazorLearning.csproj"
+RUN dotnet restore "./RazorLearning/RazorLearning.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/RazorLearning/."
 RUN dotnet build "RazorLearning.csproj" -c Release -o /app/build
 
 FROM build AS publish
