@@ -1,0 +1,21 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#D:\GoogleSDK\google-cloud-sdk\bin\gcloud app deploy app.yaml
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+WORKDIR /src
+COPY . .
+
+COPY . /app/
+RUN ls -la /app/
+RUN dotnet --version
+
+ENV ASPNETCORE_URLS http://+:8080
+
+WORKDIR /app
+
+ENTRYPOINT ["dotnet", "RazorLearning.dll"]
