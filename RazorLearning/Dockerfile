@@ -10,8 +10,8 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["RazorLearning.csproj", ""]
-#COPY ["../RazorWebService/RazorWebService.csproj", "../RazorWebService/"]
-#COPY ["../RazorWebModel/RazorWebModel.csproj", "../RazorWebModel/"]
+COPY ["../RazorWebService/RazorWebService.csproj", "../RazorWebService/"]
+COPY ["../RazorWebModel/RazorWebModel.csproj", "../RazorWebModel/"]
 RUN dotnet restore "./RazorLearning.csproj"
 COPY . .
 WORKDIR "/src/."
