@@ -14,7 +14,8 @@ resources:
   disk_size_gb: 10
 
 network:
-  forwarded_ports: 7777:80
+  forwarded_ports: 
+    -7777:80
 
 
 env_variables:
