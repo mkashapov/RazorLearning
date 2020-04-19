@@ -13,7 +13,12 @@ resources:
   memory_gb: 0.5
   disk_size_gb: 10
 
+network:
+  forwarded_ports:
+    - 8885 : 80
+
+
 env_variables:
   # The __ in My__Greeting will be translated to a : by ASP.NET.
   My__Greeting: Hello AppEngine!
-  ASPNETCORE_URLS : http://*:8080
+  ASPNETCORE_URLS : http://*:80
