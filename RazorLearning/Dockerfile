@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 
 #descriptor:      [/home/mkashapov/razor/RazorLearning/RazorLearning/app.yaml]
 #source:          [/home/mkashapov/razor/RazorLearning/RazorLearning]
@@ -20,7 +20,7 @@ RUN dotnet build "RazorLearning.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "RazorLearning.csproj" -c Release -o /app/publish
 
-ENV ASPNETCORE_URLS http://+:80
+ENV ASPNETCORE_URLS http://+:8080
 
 FROM base AS final
 WORKDIR /app
